@@ -354,6 +354,52 @@
         @media (max-width: 768px), (pointer: coarse) {
             #restart-btn { display: none !important; }
             #pause-btn { display: none !important; }
+            #ui-overlay {
+                top: 5px;
+                left: 5px;
+                right: 5px;
+            }
+            #score-display {
+                font-size: 13px;
+                background: linear-gradient(135deg, #ff6b9d, #c44dff);
+                padding: 3px 8px;
+                border-radius: 12px;
+                border: 1.5px solid rgba(255,255,255,0.5);
+            }
+            #level-display {
+                font-size: 12px;
+                background: linear-gradient(135deg, #43e97b, #38f9d7);
+                padding: 3px 8px;
+                border-radius: 12px;
+                color: #1a1a2e;
+                border: 1.5px solid rgba(255,255,255,0.5);
+                font-weight: bold;
+            }
+            #birds-remaining {
+                font-size: 11px;
+                background: linear-gradient(135deg, #ffecd2, #fcb69f);
+                padding: 3px 8px;
+                border-radius: 12px;
+                color: #1a1a2e;
+                border: 1.5px solid rgba(255,255,255,0.5);
+            }
+            #game-message {
+                font-size: 28px;
+            }
+            #next-level-btn {
+                padding: 8px 18px;
+                font-size: 13px;
+                border-radius: 20px;
+                border: 2px solid #fff;
+                background: linear-gradient(135deg, #43e97b, #38f9d7);
+                color: #1a1a2e;
+                bottom: 12px;
+                animation: btnPulse 1s ease-in-out infinite;
+            }
+            @keyframes btnPulse {
+                0%, 100% { transform: translateX(-50%) scale(1); }
+                50% { transform: translateX(-50%) scale(1.08); }
+            }
         }
 
         /* Hide game UI initially */
@@ -1075,6 +1121,76 @@
                 particles.push(new Particle(x, y, '#c8b896', size,
                     Math.cos(angle) * speed, Math.sin(angle) * speed - 1, life));
             }
+        }
+
+        // ==================== FIREWORKS (MOBILE WIN) ====================
+        let fireworks = [];
+        let fireworkActive = false;
+
+        function isMobile() {
+            return window.innerWidth <= 768 || ('ontouchstart' in window);
+        }
+
+        function launchFireworks() {
+            if (!isMobile()) return;
+            fireworkActive = true;
+            let count = 0;
+            const interval = setInterval(() => {
+                if (count >= 6) { clearInterval(interval); return; }
+                const x = Math.random() * W * 0.6 + W * 0.2;
+                const y = H + 20;
+                fireworks.push({ x, y, targetY: Math.random() * H * 0.4 + 50, vy: -(Math.random() * 8 + 12), exploded: false, trail: [] });
+                count++;
+            }, 300);
+            setTimeout(() => { fireworkActive = false; }, 4000);
+        }
+
+        function updateFireworks() {
+            fireworks = fireworks.filter(fw => {
+                if (!fw.exploded) {
+                    fw.y += fw.vy;
+                    fw.trail.push({ x: fw.x, y: fw.y, life: 15 });
+                    if (fw.trail.length > 8) fw.trail.shift();
+                    if (fw.y <= fw.targetY) {
+                        fw.exploded = true;
+                        const colors = ['#ff006e','#ffbe0b','#00f5d4','#8338ec','#fb5607','#3a86ff'];
+                        for (let i = 0; i < 40; i++) {
+                            const angle = Math.random() * Math.PI * 2;
+                            const speed = Math.random() * 7 + 2;
+                            const size = Math.random() * 5 + 2;
+                            const life = Math.random() * 50 + 30;
+                            const color = colors[Math.floor(Math.random() * colors.length)];
+                            particles.push(new Particle(fw.x, fw.y, color, size,
+                                Math.cos(angle) * speed, Math.sin(angle) * speed - 2, life));
+                        }
+                    }
+                    return true;
+                }
+                return false;
+            });
+            fireworks.forEach(fw => {
+                fw.trail = fw.trail.filter(t => { t.life--; return t.life > 0; });
+            });
+        }
+
+        function drawFireworks(ctx) {
+            fireworks.forEach(fw => {
+                fw.trail.forEach(t => {
+                    ctx.globalAlpha = t.life / 15;
+                    ctx.fillStyle = '#fff';
+                    ctx.beginPath();
+                    ctx.arc(t.x, t.y, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+                if (!fw.exploded) {
+                    ctx.globalAlpha = 1;
+                    ctx.fillStyle = '#fff';
+                    ctx.beginPath();
+                    ctx.arc(fw.x, fw.y, 3, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            });
+            ctx.globalAlpha = 1;
         }
 
         // ==================== CLOUDS ====================
@@ -2251,6 +2367,7 @@
                 document.getElementById('next-level-btn').style.display = 'block';
                 updateUI();
                 playWinSound();
+                launchFireworks();
                 return;
             }
 
@@ -2278,6 +2395,8 @@
                 p.update();
                 return p.life > 0;
             });
+
+            updateFireworks();
 
             // Track game state
             if (gameState === 'flying' && currentBird) {
@@ -2380,6 +2499,7 @@
 
             // Draw particles
             particles.forEach(p => p.draw(ctx));
+            drawFireworks(ctx);
 
             // Draw launched birds that are still in flight (not in sling)
             const allBodies = Composite.allBodies(world);
