@@ -351,6 +351,11 @@
         }
         #pause-btn:hover { background: rgba(0,0,0,0.7); }
 
+        @media (max-width: 768px), (pointer: coarse) {
+            #restart-btn { display: none !important; }
+            #pause-btn { display: none !important; }
+        }
+
         /* Hide game UI initially */
         #game-container { display: none; position: relative; }
         #game-container.active { display: block; }
