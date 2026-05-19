@@ -2426,6 +2426,14 @@
             }
         });
 
+        document.addEventListener('touchstart', function(e) {
+            if (gameState === 'flying' && currentBird && currentBird.hasLaunched && !currentBird.abilityUsed) {
+                if (Date.now() - launchTime > 300) {
+                    activateAbility();
+                }
+            }
+        });
+
         document.addEventListener('keydown', function(e) {
             if (e.code === 'Space' && gameState === 'flying' && currentBird && !currentBird.abilityUsed) {
                 if (Date.now() - launchTime > 300) {
