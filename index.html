@@ -1875,6 +1875,189 @@
                     { x: 850, y: GROUND_Y - 130, size: 22 },
                     { x: 850, y: GROUND_Y - 195, size: 30 },
                 ]
+            },
+            // Level 6 — Twin towers with pigs at multiple heights
+            {
+                birds: ['yellow', 'black', 'blue', 'red', 'yellow'],
+                structures: [
+                    // Left tower
+                    { type: 'stone', x: 620, y: GROUND_Y - 25, w: 25, h: 100 },
+                    { type: 'stone', x: 700, y: GROUND_Y - 25, w: 25, h: 100 },
+                    { type: 'stone', x: 660, y: GROUND_Y - 80, w: 120, h: 15 },
+                    { type: 'wood', x: 640, y: GROUND_Y - 100, w: 15, h: 35 },
+                    { type: 'wood', x: 680, y: GROUND_Y - 100, w: 15, h: 35 },
+                    { type: 'wood', x: 660, y: GROUND_Y - 122, w: 80, h: 12 },
+                    { type: 'stone', x: 660, y: GROUND_Y - 140, w: 25, h: 25 },
+                    // Right tower
+                    { type: 'stone', x: 900, y: GROUND_Y - 25, w: 25, h: 100 },
+                    { type: 'stone', x: 980, y: GROUND_Y - 25, w: 25, h: 100 },
+                    { type: 'stone', x: 940, y: GROUND_Y - 80, w: 120, h: 15 },
+                    { type: 'wood', x: 920, y: GROUND_Y - 100, w: 15, h: 35 },
+                    { type: 'wood', x: 960, y: GROUND_Y - 100, w: 15, h: 35 },
+                    { type: 'wood', x: 940, y: GROUND_Y - 122, w: 80, h: 12 },
+                    { type: 'stone', x: 940, y: GROUND_Y - 140, w: 25, h: 25 },
+                    // Bridge connecting towers
+                    { type: 'glass', x: 800, y: GROUND_Y - 80, w: 140, h: 12 },
+                    { type: 'glass', x: 770, y: GROUND_Y - 92, w: 15, h: 20 },
+                    { type: 'glass', x: 830, y: GROUND_Y - 92, w: 15, h: 20 },
+                ],
+                pigs: [
+                    { x: 660, y: GROUND_Y - 15, size: 18 },
+                    { x: 660, y: GROUND_Y - 155, size: 15 },
+                    { x: 800, y: GROUND_Y - 95, size: 16 },
+                    { x: 940, y: GROUND_Y - 15, size: 18 },
+                    { x: 940, y: GROUND_Y - 155, size: 15 },
+                ]
+            },
+            // Level 7 — Fortress with thick stone walls
+            {
+                birds: ['black', 'black', 'yellow', 'blue', 'red', 'black'],
+                structures: [
+                    // Outer walls
+                    { type: 'stone', x: 620, y: GROUND_Y - 35, w: 30, h: 130 },
+                    { type: 'stone', x: 1020, y: GROUND_Y - 35, w: 30, h: 130 },
+                    // Inner compartments
+                    { type: 'stone', x: 720, y: GROUND_Y - 20, w: 20, h: 80 },
+                    { type: 'stone', x: 820, y: GROUND_Y - 20, w: 20, h: 80 },
+                    { type: 'stone', x: 920, y: GROUND_Y - 20, w: 20, h: 80 },
+                    { type: 'stone', x: 770, y: GROUND_Y - 65, w: 120, h: 15 },
+                    { type: 'stone', x: 870, y: GROUND_Y - 65, w: 120, h: 15 },
+                    // Upper floor
+                    { type: 'stone', x: 820, y: GROUND_Y - 105, w: 440, h: 18 },
+                    { type: 'wood', x: 720, y: GROUND_Y - 125, w: 15, h: 30 },
+                    { type: 'wood', x: 820, y: GROUND_Y - 125, w: 15, h: 30 },
+                    { type: 'wood', x: 920, y: GROUND_Y - 125, w: 15, h: 30 },
+                    { type: 'wood', x: 820, y: GROUND_Y - 145, w: 240, h: 12 },
+                    // Roof
+                    { type: 'glass', x: 770, y: GROUND_Y - 158, w: 20, h: 20 },
+                    { type: 'glass', x: 870, y: GROUND_Y - 158, w: 20, h: 20 },
+                    { type: 'stone', x: 820, y: GROUND_Y - 173, w: 160, h: 10 },
+                ],
+                pigs: [
+                    { x: 670, y: GROUND_Y - 15, size: 20 },
+                    { x: 770, y: GROUND_Y - 15, size: 18 },
+                    { x: 870, y: GROUND_Y - 15, size: 18 },
+                    { x: 970, y: GROUND_Y - 15, size: 20 },
+                    { x: 770, y: GROUND_Y - 80, size: 15 },
+                    { x: 870, y: GROUND_Y - 80, size: 15 },
+                ]
+            },
+            // Level 8 — Pyramid of doom
+            {
+                birds: ['yellow', 'yellow', 'black', 'blue', 'black', 'red'],
+                structures: [
+                    // Base row
+                    { type: 'stone', x: 680, y: GROUND_Y - 15, w: 25, h: 60 },
+                    { type: 'stone', x: 740, y: GROUND_Y - 15, w: 25, h: 60 },
+                    { type: 'stone', x: 800, y: GROUND_Y - 15, w: 25, h: 60 },
+                    { type: 'stone', x: 860, y: GROUND_Y - 15, w: 25, h: 60 },
+                    { type: 'stone', x: 920, y: GROUND_Y - 15, w: 25, h: 60 },
+                    { type: 'stone', x: 980, y: GROUND_Y - 15, w: 25, h: 60 },
+                    { type: 'stone', x: 830, y: GROUND_Y - 50, w: 340, h: 15 },
+                    // Second row
+                    { type: 'wood', x: 720, y: GROUND_Y - 70, w: 20, h: 50 },
+                    { type: 'wood', x: 800, y: GROUND_Y - 70, w: 20, h: 50 },
+                    { type: 'wood', x: 880, y: GROUND_Y - 70, w: 20, h: 50 },
+                    { type: 'wood', x: 960, y: GROUND_Y - 70, w: 20, h: 50 },
+                    { type: 'wood', x: 840, y: GROUND_Y - 100, w: 280, h: 12 },
+                    // Third row
+                    { type: 'wood', x: 770, y: GROUND_Y - 115, w: 15, h: 40 },
+                    { type: 'wood', x: 850, y: GROUND_Y - 115, w: 15, h: 40 },
+                    { type: 'wood', x: 930, y: GROUND_Y - 115, w: 15, h: 40 },
+                    { type: 'glass', x: 850, y: GROUND_Y - 140, w: 200, h: 10 },
+                    // Top
+                    { type: 'glass', x: 820, y: GROUND_Y - 155, w: 15, h: 25 },
+                    { type: 'glass', x: 880, y: GROUND_Y - 155, w: 15, h: 25 },
+                    { type: 'stone', x: 850, y: GROUND_Y - 172, w: 100, h: 10 },
+                    { type: 'stone', x: 850, y: GROUND_Y - 185, w: 30, h: 20 },
+                ],
+                pigs: [
+                    { x: 710, y: GROUND_Y - 55, size: 16 },
+                    { x: 800, y: GROUND_Y - 55, size: 16 },
+                    { x: 890, y: GROUND_Y - 55, size: 16 },
+                    { x: 960, y: GROUND_Y - 55, size: 16 },
+                    { x: 810, y: GROUND_Y - 115, size: 15 },
+                    { x: 890, y: GROUND_Y - 115, size: 15 },
+                    { x: 850, y: GROUND_Y - 200, size: 20 },
+                ]
+            },
+            // Level 9 — Scattered bunkers
+            {
+                birds: ['black', 'yellow', 'blue', 'black', 'yellow', 'red'],
+                structures: [
+                    // Bunker 1 (far left, low)
+                    { type: 'stone', x: 550, y: GROUND_Y - 15, w: 80, h: 30 },
+                    { type: 'stone', x: 530, y: GROUND_Y - 35, w: 20, h: 40 },
+                    { type: 'stone', x: 570, y: GROUND_Y - 35, w: 20, h: 40 },
+                    { type: 'stone', x: 550, y: GROUND_Y - 58, w: 60, h: 10 },
+                    // Bunker 2 (middle, elevated on platform)
+                    { type: 'stone', x: 750, y: GROUND_Y - 20, w: 30, h: 80 },
+                    { type: 'stone', x: 850, y: GROUND_Y - 20, w: 30, h: 80 },
+                    { type: 'stone', x: 800, y: GROUND_Y - 65, w: 140, h: 15 },
+                    { type: 'wood', x: 775, y: GROUND_Y - 80, w: 15, h: 25 },
+                    { type: 'wood', x: 825, y: GROUND_Y - 80, w: 15, h: 25 },
+                    { type: 'stone', x: 800, y: GROUND_Y - 97, w: 80, h: 10 },
+                    // Bunker 3 (far right, tall)
+                    { type: 'stone', x: 1000, y: GROUND_Y - 30, w: 25, h: 120 },
+                    { type: 'stone', x: 1080, y: GROUND_Y - 30, w: 25, h: 120 },
+                    { type: 'stone', x: 1040, y: GROUND_Y - 95, w: 110, h: 15 },
+                    { type: 'wood', x: 1020, y: GROUND_Y - 110, w: 15, h: 25 },
+                    { type: 'wood', x: 1060, y: GROUND_Y - 110, w: 15, h: 25 },
+                    { type: 'stone', x: 1040, y: GROUND_Y - 127, w: 70, h: 10 },
+                    { type: 'glass', x: 1040, y: GROUND_Y - 140, w: 30, h: 20 },
+                ],
+                pigs: [
+                    { x: 550, y: GROUND_Y - 65, size: 16 },
+                    { x: 800, y: GROUND_Y - 15, size: 18 },
+                    { x: 800, y: GROUND_Y - 105, size: 15 },
+                    { x: 1040, y: GROUND_Y - 15, size: 20 },
+                    { x: 1040, y: GROUND_Y - 145, size: 18 },
+                ]
+            },
+            // Level 10 — The Final Fortress
+            {
+                birds: ['black', 'black', 'black', 'yellow', 'blue', 'yellow', 'red'],
+                structures: [
+                    // Outer stone fortress
+                    { type: 'stone', x: 580, y: GROUND_Y - 40, w: 35, h: 140 },
+                    { type: 'stone', x: 1080, y: GROUND_Y - 40, w: 35, h: 140 },
+                    { type: 'stone', x: 830, y: GROUND_Y - 115, w: 540, h: 20 },
+                    // Ground floor rooms
+                    { type: 'stone', x: 680, y: GROUND_Y - 25, w: 25, h: 90 },
+                    { type: 'stone', x: 780, y: GROUND_Y - 25, w: 25, h: 90 },
+                    { type: 'stone', x: 880, y: GROUND_Y - 25, w: 25, h: 90 },
+                    { type: 'stone', x: 980, y: GROUND_Y - 25, w: 25, h: 90 },
+                    { type: 'wood', x: 730, y: GROUND_Y - 75, w: 120, h: 12 },
+                    { type: 'wood', x: 830, y: GROUND_Y - 75, w: 120, h: 12 },
+                    { type: 'wood', x: 930, y: GROUND_Y - 75, w: 120, h: 12 },
+                    // Second floor
+                    { type: 'wood', x: 700, y: GROUND_Y - 135, w: 20, h: 35 },
+                    { type: 'wood', x: 800, y: GROUND_Y - 135, w: 20, h: 35 },
+                    { type: 'wood', x: 900, y: GROUND_Y - 135, w: 20, h: 35 },
+                    { type: 'wood', x: 1000, y: GROUND_Y - 135, w: 20, h: 35 },
+                    { type: 'stone', x: 830, y: GROUND_Y - 158, w: 380, h: 12 },
+                    // Towers on top
+                    { type: 'glass', x: 700, y: GROUND_Y - 175, w: 15, h: 30 },
+                    { type: 'glass', x: 770, y: GROUND_Y - 175, w: 15, h: 30 },
+                    { type: 'glass', x: 880, y: GROUND_Y - 175, w: 15, h: 30 },
+                    { type: 'glass', x: 960, y: GROUND_Y - 175, w: 15, h: 30 },
+                    { type: 'wood', x: 735, y: GROUND_Y - 195, w: 100, h: 10 },
+                    { type: 'wood', x: 920, y: GROUND_Y - 195, w: 100, h: 10 },
+                    // Crown
+                    { type: 'stone', x: 830, y: GROUND_Y - 175, w: 40, h: 30 },
+                    { type: 'stone', x: 830, y: GROUND_Y - 200, w: 60, h: 15 },
+                    { type: 'glass', x: 830, y: GROUND_Y - 215, w: 20, h: 20 },
+                ],
+                pigs: [
+                    { x: 630, y: GROUND_Y - 15, size: 18 },
+                    { x: 730, y: GROUND_Y - 15, size: 18 },
+                    { x: 830, y: GROUND_Y - 15, size: 20 },
+                    { x: 930, y: GROUND_Y - 15, size: 18 },
+                    { x: 1030, y: GROUND_Y - 15, size: 18 },
+                    { x: 735, y: GROUND_Y - 130, size: 16 },
+                    { x: 920, y: GROUND_Y - 130, size: 16 },
+                    { x: 830, y: GROUND_Y - 230, size: 25 },
+                ]
             }
         ];
 
